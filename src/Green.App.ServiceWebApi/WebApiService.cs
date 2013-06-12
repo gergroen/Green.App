@@ -8,26 +8,22 @@ namespace Green.App.ServiceWebApi
     public class WebApiService
     {
         private readonly ILog _logger = LogManager.GetLogger(typeof(WebApiService));
-
-        public string Url { get; set; }
-        public int MaxReceivedMessageSize { get; set; }
-
         private HttpSelfHostServer _server;
+        private readonly string _url;
 
-        public WebApiService()
+        public WebApiService(string url)
         {
-            Url = "http://localhost/api";
-            MaxReceivedMessageSize = int.MaxValue;
+            _url = url;
         }
 
         public void Start()
         {
             _logger.Info("Starting service");
 
-            var address = new Uri(Url);
+            var address = new Uri(_url);
             var config = new HttpSelfHostConfiguration(address);
 
-            config.MaxReceivedMessageSize = MaxReceivedMessageSize;
+            config.MaxReceivedMessageSize = int.MaxValue;
             config.Routes.MapHttpRoute("ActionApi", "{action}", new { controller = "App" });
 
             _server = new HttpSelfHostServer(config);
@@ -43,7 +39,7 @@ namespace Green.App.ServiceWebApi
             }
 
             _logger.Info("Service started");
-            _logger.InfoFormat("Listening on {0}", Url);
+            _logger.InfoFormat("Listening on {0}", _url);
         }
 
         public void Stop()

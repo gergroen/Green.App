@@ -13,7 +13,7 @@ namespace Green.App.ServiceWebApi
                 {
                     x.Service<WebApiService>(s =>
                         {
-                            s.ConstructUsing(name => new WebApiService());
+                            s.ConstructUsing(name => new WebApiService("http://localhost/api"));
                             s.WhenStarted(tc => tc.Start());
                             s.WhenStopped(tc => tc.Stop());
                         });
