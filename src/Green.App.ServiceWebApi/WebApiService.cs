@@ -16,7 +16,7 @@ namespace Green.App.ServiceWebApi
 
         public WebApiService()
         {
-            Url = "http://localhost/Default";
+            Url = "http://localhost/api";
             MaxReceivedMessageSize = int.MaxValue;
         }
 
@@ -28,7 +28,7 @@ namespace Green.App.ServiceWebApi
             var config = new HttpSelfHostConfiguration(address);
 
             config.MaxReceivedMessageSize = MaxReceivedMessageSize;
-            config.Routes.MapHttpRoute("ActionApi", "{controller}/{action}");
+            config.Routes.MapHttpRoute("ActionApi", "{action}", new { controller = "App" });
 
             _server = new HttpSelfHostServer(config);
 

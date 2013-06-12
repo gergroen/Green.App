@@ -1,4 +1,5 @@
-﻿using Topshelf;
+﻿using System.IO;
+using Topshelf;
 using log4net.Config;
 
 namespace Green.App.ServiceWebApi
@@ -7,7 +8,7 @@ namespace Green.App.ServiceWebApi
     {
         private static void Main(string[] args)
         {
-            XmlConfigurator.Configure();
+            XmlConfigurator.ConfigureAndWatch(new FileInfo(@"Config\log4net.config"));
             HostFactory.Run(x =>
                 {
                     x.Service<WebApiService>(s =>
