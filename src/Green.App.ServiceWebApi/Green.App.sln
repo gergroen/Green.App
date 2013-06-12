@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Green.App.ServiceWebApi", "Green.App.ServiceWebApi\Green.App.ServiceWebApi.csproj", "{798DF04E-A9ED-4A4C-902C-8479B559F11D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{798DF04E-A9ED-4A4C-902C-8479B559F11D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{798DF04E-A9ED-4A4C-902C-8479B559F11D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{798DF04E-A9ED-4A4C-902C-8479B559F11D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{798DF04E-A9ED-4A4C-902C-8479B559F11D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
