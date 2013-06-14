@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Topshelf;
 using log4net.Config;
 
@@ -13,7 +14,7 @@ namespace Green.App.ServiceWebApi
                 {
                     x.Service<WebApiService>(s =>
                         {
-                            s.ConstructUsing(name => new WebApiService("http://localhost/api"));
+                            s.ConstructUsing(name => new WebApiService(new Uri("http://localhost/api")));
                             s.WhenStarted(tc => tc.Start());
                             s.WhenStopped(tc => tc.Stop());
                         });
