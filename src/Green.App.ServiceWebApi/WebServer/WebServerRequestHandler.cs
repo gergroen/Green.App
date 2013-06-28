@@ -32,7 +32,10 @@ namespace Green.App.ServiceWebApi.WebServer
         private HttpResponseMessage ProcessWebServerRequest(HttpRequestMessage request)
         {
             _logger.InfoFormat("Request {0}", request.RequestUri);
-            var file = request.RequestUri.ToString().Replace(_baseUri.ToString(), "");
+
+            var requestUrl = request.RequestUri.LocalPath;
+            var file = requestUrl.Replace("/www/", "");
+
             var filePath = _filePath + file;
             if (string.IsNullOrWhiteSpace(file))
             {

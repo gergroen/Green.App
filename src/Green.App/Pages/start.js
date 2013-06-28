@@ -9,10 +9,17 @@ function StartPage() {
         Status: ko.observable(),
         PageShow: function (params) {
             self.ViewModel.CheckOnlineStatus();
-            self.ViewModel.StatusIntervalId = setInterval(self.ViewModel.CheckOnlineStatus, 1000);
+            self.ViewModel.StatusIntervalId = setInterval(self.ViewModel.CheckOnlineStatus, 2000);
         },
         CheckOnlineStatus: function () {
-            $.getJSON("http://localhost/api/isonline", self.ViewModel.OnStatusOnline).fail(self.ViewModel.OnStatusOffline);
+            $.ajax({
+                cache: false,
+                timeout: 1000,
+                url: "http://gerard-laptop/api/isonline",
+                dataType: 'json',
+                success: self.ViewModel.OnStatusOnline,
+                error: self.ViewModel.OnStatusOffline
+            });
         },
         OnStatusOnline: function () {
             self.ViewModel.Status(self.ViewModel.Resources.online);
