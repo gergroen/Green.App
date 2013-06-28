@@ -5,14 +5,30 @@ function StartPage() {
     self.Pageinit = function() {
     };
     self.ViewModel = {
-        PageShow: function(params) {
+        StatusIntervalId: "",
+        Status: ko.observable(),
+        PageShow: function (params) {
+            self.ViewModel.CheckOnlineStatus();
+            self.ViewModel.StatusIntervalId = setInterval(self.ViewModel.CheckOnlineStatus, 1000);
         },
-        PageHide: function() {
+        CheckOnlineStatus: function () {
+            $.getJSON("http://localhost/api/isonline", self.ViewModel.OnStatusOnline).fail(self.ViewModel.OnStatusOffline);
+        },
+        OnStatusOnline: function () {
+            self.ViewModel.Status(self.ViewModel.Resources.online);
+        },
+        OnStatusOffline: function () {
+            self.ViewModel.Status(self.ViewModel.Resources.offline);
+        },
+        PageHide: function () {
+            clearInterval(self.ViewModel.StatusIntervalId);
         },
         Resources: {},
         ResourceDictionary: {
             en : {
-                title: "Start"
+                title: "Start",
+                online: "Online",
+                offline: "Offline"
             }
         }
     };
