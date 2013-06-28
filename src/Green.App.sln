@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Green.App.ServiceWebApi", "Green.App.ServiceWebApi\Green.App.ServiceWebApi.csproj", "{798DF04E-A9ED-4A4C-902C-8479B559F11D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Green.App.Service", "Green.App.ServiceWebApi\Green.App.Service.csproj", "{798DF04E-A9ED-4A4C-902C-8479B559F11D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6A527CB4-C4D3-4DF0-9B86-92C71FBD093B}"
 	ProjectSection(SolutionItems) = preProject

@@ -58,9 +58,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Green.App.ServiceWebApi\Green.App.ServiceWebApi.csproj">
+    <ProjectReference Include="..\Green.App.ServiceWebApi\Green.App.Service.csproj">
       <Project>{798DF04E-A9ED-4A4C-902C-8479B559F11D}</Project>
-      <Name>Green.App.ServiceWebApi</Name>
+      <Name>Green.App.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
