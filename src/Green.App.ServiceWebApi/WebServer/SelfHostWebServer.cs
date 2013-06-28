@@ -1,31 +1,30 @@
 ﻿using System;
-using System.Web.Http;
 using System.Web.Http.SelfHost;
 using log4net;
 
-namespace Green.App.ServiceWebApi
+namespace Green.App.ServiceWebApi.WebServer
 {
-    public class WebApiService
+    public class SelfHostWebServer : IManageableService
     {
-        private readonly ILog _logger = LogManager.GetLogger(typeof(WebApiService));
+        private readonly ILog _logger = LogManager.GetLogger(typeof(SelfHostWebServer));
         private HttpSelfHostServer _server;
         private readonly Uri _uri;
+        private string _filePath;
 
-        public WebApiService(Uri uri)
+        public SelfHostWebServer(Uri uri, string filePath)
         {
             _uri = uri;
+            _filePath = filePath;
         }
 
         public void Start()
         {
-            _logger.Info("Starting service");
+            _logger.Info("Starting web server");
 
             var config = new HttpSelfHostConfiguration(_uri);
-
             config.MaxReceivedMessageSize = int.MaxValue;
-            config.Routes.MapHttpRoute("ActionApi", "{action}", new { controller = "App" });
 
-            _server = new HttpSelfHostServer(config);
+            _server = new HttpSelfHostServer(config, new WebServerRequestHandler(_uri, _filePath));
 
             try
             {
@@ -37,18 +36,18 @@ namespace Green.App.ServiceWebApi
                 throw;
             }
 
-            _logger.Info("Service started");
+            _logger.Info("Web server started");
             _logger.InfoFormat("Listening on {0}", _uri);
         }
 
         public void Stop()
         {
-            _logger.Info("Stopping service");
+            _logger.Info("Stopping Web server");
 
             _server.CloseAsync().Wait();
             _server.Dispose();
 
-            _logger.Info("Service stopped");
+            _logger.Info("Web server stopped");
         }
     }
 }

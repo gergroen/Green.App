@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Net.Http;
 using Green.App.ServiceWebApi;
+using Green.App.ServiceWebApi.WebApi;
 using NUnit.Framework;
 
-namespace Green.App.Test.ServiceWebApi
+namespace Green.App.Test.Green.App.ServiceWebApi
 {
     [TestFixture]
     public class TestWebApiService
     {
-        private WebApiService _webApiService;
+        private SelfHostWebApiService _selfHostWebApiService;
         private HttpClient _webApiClient;
 
         [SetUp]
@@ -16,8 +17,8 @@ namespace Green.App.Test.ServiceWebApi
         {
             var serviceUri = new Uri("http://localhost/testapi/");
 
-            _webApiService = new WebApiService(serviceUri);
-            _webApiService.Start();
+            _selfHostWebApiService = new SelfHostWebApiService(serviceUri);
+            _selfHostWebApiService.Start();
 
             _webApiClient= new HttpClient();
             _webApiClient.BaseAddress = serviceUri;
@@ -35,7 +36,7 @@ namespace Green.App.Test.ServiceWebApi
         public void StopWebApiService()
         {
             _webApiClient.Dispose();
-            _webApiService.Stop();
+            _selfHostWebApiService.Stop();
         }
     }
 }
