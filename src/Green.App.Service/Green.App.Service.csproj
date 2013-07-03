@@ -97,9 +97,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dao\FluentMigrator\CreateSchemaVersionTable.cs" />
-    <Compile Include="Dao\NHibernateRepository.cs" />
-    <Compile Include="Dao\SchemaVersionMap.cs" />
-    <Compile Include="Dao\SqlCeEngineHelper.cs" />
+    <Compile Include="Dao\NHibernate\NHibernateRepository.cs" />
+    <Compile Include="Dao\NHibernate\SchemaVersionMap.cs" />
+    <Compile Include="Dao\SqlCe\SqlCeEngineHelper.cs" />
     <Compile Include="Dao\FluentMigrator\FluentMigratorRunner.cs" />
     <Compile Include="Model\IEntity.cs" />
     <Compile Include="Model\IRepository.cs" />

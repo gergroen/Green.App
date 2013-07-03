@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Green.App.ServiceWebApi
+namespace Green.App.Service.Service
 {
     public class WindowsServiceHost
     {

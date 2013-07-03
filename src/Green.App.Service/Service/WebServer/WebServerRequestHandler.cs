@@ -5,7 +5,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using log4net;
 
-namespace Green.App.ServiceWebApi.WebServer
+namespace Green.App.Service.Service.WebServer
 {
     public class WebServerRequestHandler : WebRequestHandler
     {

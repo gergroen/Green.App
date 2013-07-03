@@ -1,7 +1,7 @@
 ﻿using Green.App.Service.Model;
 using NHibernate;
 
-namespace Green.App.Service.Dao
+namespace Green.App.Service.Dao.NHibernate
 {
     public class NHibernateRepository : IRepository
     {

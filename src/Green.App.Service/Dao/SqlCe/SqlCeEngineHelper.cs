@@ -1,7 +1,7 @@
 ﻿using System.Data.SqlServerCe;
 using System.IO;
 
-namespace Green.App.Service.Dao
+namespace Green.App.Service.Dao.SqlCe
 {
     public static class SqlCeEngineHelper
     {

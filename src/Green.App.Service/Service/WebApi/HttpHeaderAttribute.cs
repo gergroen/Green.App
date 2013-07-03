@@ -1,6 +1,6 @@
 ﻿using System.Web.Http.Filters;
 
-namespace Green.App.ServiceWebApi.WebApi
+namespace Green.App.Service.Service.WebApi
 {
     public class HttpHeaderAttribute : ActionFilterAttribute
     {

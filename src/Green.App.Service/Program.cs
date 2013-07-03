@@ -1,10 +1,11 @@
 ﻿using System;
-using System.Data.SqlServerCe;
 using System.IO;
-using Green.App.Service.Dao;
 using Green.App.Service.Dao.FluentMigrator;
-using Green.App.ServiceWebApi.WebApi;
-using Green.App.ServiceWebApi.WebServer;
+using Green.App.Service.Dao.NHibernate;
+using Green.App.Service.Dao.SqlCe;
+using Green.App.Service.Service;
+using Green.App.Service.Service.WebApi;
+using Green.App.Service.Service.WebServer;
 using NHibernate.Cfg;
 using NHibernate.Dialect;
 using NHibernate.Driver;
@@ -15,7 +16,7 @@ using Topshelf;
 using log4net;
 using log4net.Config;
 
-namespace Green.App.ServiceWebApi
+namespace Green.App.Service
 {
     class Program
     {

@@ -2,7 +2,7 @@
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
 
-namespace Green.App.Service.Dao
+namespace Green.App.Service.Dao.NHibernate
 {
     public class SchemaVersionMap : ClassMapping<SchemaVersion>
     {

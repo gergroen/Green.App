@@ -3,7 +3,7 @@ using System.Web.Http;
 using System.Web.Http.SelfHost;
 using log4net;
 
-namespace Green.App.ServiceWebApi.WebApi
+namespace Green.App.Service.Service.WebApi
 {
     public class SelfHostWebApiService : IManageableService
     {
