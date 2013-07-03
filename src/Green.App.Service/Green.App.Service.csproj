@@ -47,6 +47,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentMigrator">
+      <HintPath>..\..\packages\FluentMigrator.1.1.1.0\lib\40\FluentMigrator.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentMigrator.Runner">
+      <HintPath>..\..\packages\FluentMigrator.Tools.1.1.1.0\tools\AnyCPU\40\FluentMigrator.Runner.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -90,9 +96,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\FluentMigrator\CreateSchemaVersionTable.cs" />
     <Compile Include="Dao\NHibernateRepository.cs" />
     <Compile Include="Dao\SchemaVersionMap.cs" />
     <Compile Include="Dao\SqlCeEngineHelper.cs" />
+    <Compile Include="Dao\FluentMigrator\FluentMigratorRunner.cs" />
     <Compile Include="Model\IEntity.cs" />
     <Compile Include="Model\IRepository.cs" />
     <Compile Include="Model\SchemaVersion.cs" />
@@ -131,7 +139,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

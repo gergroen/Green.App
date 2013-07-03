@@ -2,7 +2,7 @@
 using System.Data.SqlServerCe;
 using System.IO;
 using Green.App.Service.Dao;
-using Green.App.Service.Model;
+using Green.App.Service.Dao.FluentMigrator;
 using Green.App.ServiceWebApi.WebApi;
 using Green.App.ServiceWebApi.WebServer;
 using NHibernate.Cfg;
@@ -26,28 +26,37 @@ namespace Green.App.ServiceWebApi
             var webServerUri = "http://localhost/www/";
             var webServerFileDir = @"C:\Data\Development\Source\Microsoft.Net\Green.App\src\Green.App\";
             var log4netConfigFile = @"Config\log4net.config";
+            var connectionString = SqlCeEngineHelper.CreateConnectionString(databaseFileName);
 
             XmlConfigurator.ConfigureAndWatch(new FileInfo(log4netConfigFile));
 
             SqlCeEngineHelper.DeleteDatabaseIfExists(databaseFileName);
             SqlCeEngineHelper.CreateDatabaseIfNotExists(databaseFileName);
 
+            FluentMigratorRunner.MigrateToLatest(connectionString);
+
             var configuration = new Configuration();
             configuration.CurrentSessionContext<ThreadStaticSessionContext>();
             configuration.SessionFactory()
                 .Integrate.Using<MsSqlCe40Dialect>()
                 .Connected.By<SqlServerCeDriver>()
-                .Using(SqlCeEngineHelper.CreateConnectionString(databaseFileName));
+                .Using(connectionString);
 
             var mapper = new ModelMapper();
             mapper.AddMapping<SchemaVersionMap>();
             configuration.AddMapping(mapper.CompileMappingForAllExplicitlyAddedEntities());
 
-            var schema = new SchemaUpdate(configuration);
-            schema.Execute(LogManager.GetLogger(typeof(SchemaUpdate)).Info, true);
-
-            var validator = new SchemaValidator(configuration);
-            validator.Validate();
+            try
+            {
+                var validator = new SchemaValidator(configuration);
+                validator.Validate();
+            }
+            catch (Exception)
+            {
+                var schema = new SchemaUpdate(configuration);
+                schema.Execute(LogManager.GetLogger(typeof(SchemaUpdate)).Info, false);
+                throw;
+            }
 
             var sessionFactory = configuration.BuildSessionFactory();
 
