@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Web.Http.SelfHost;
 using log4net;
 
@@ -9,12 +10,12 @@ namespace Green.App.ServiceWebApi.WebServer
         private readonly ILog _logger = LogManager.GetLogger(typeof(SelfHostWebServer));
         private HttpSelfHostServer _server;
         private readonly Uri _uri;
-        private string _filePath;
+        private DirectoryInfo _webDirectory;
 
-        public SelfHostWebServer(Uri uri, string filePath)
+        public SelfHostWebServer(Uri uri, DirectoryInfo webDirectory)
         {
             _uri = uri;
-            _filePath = filePath;
+            _webDirectory = webDirectory;
         }
 
         public void Start()
@@ -24,7 +25,7 @@ namespace Green.App.ServiceWebApi.WebServer
             var config = new HttpSelfHostConfiguration(_uri);
             config.MaxReceivedMessageSize = int.MaxValue;
 
-            _server = new HttpSelfHostServer(config, new WebServerRequestHandler(_uri, _filePath));
+            _server = new HttpSelfHostServer(config, new WebServerRequestHandler(_uri, _webDirectory));
 
             try
             {

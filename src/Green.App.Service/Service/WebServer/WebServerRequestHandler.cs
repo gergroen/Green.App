@@ -10,13 +10,13 @@ namespace Green.App.ServiceWebApi.WebServer
     public class WebServerRequestHandler : WebRequestHandler
     {
         private readonly ILog _logger = LogManager.GetLogger(typeof(WebServerRequestHandler));
-        private string _filePath;
+        private DirectoryInfo _webDirectory;
         private Uri _baseUri;
 
-        public WebServerRequestHandler(Uri baseUri, string filePath)
+        public WebServerRequestHandler(Uri baseUri, DirectoryInfo webDirectory)
         {
             _baseUri = baseUri;
-            _filePath = filePath;
+            _webDirectory = webDirectory;
         }
 
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
@@ -36,10 +36,10 @@ namespace Green.App.ServiceWebApi.WebServer
             var requestUrl = request.RequestUri.LocalPath;
             var file = requestUrl.Replace("/www/", "");
 
-            var filePath = _filePath + file;
+            var filePath = _webDirectory + file;
             if (string.IsNullOrWhiteSpace(file))
             {
-                filePath = _filePath + "index.html";
+                filePath = _webDirectory + "index.html";
             }
 
             var fileInfo = new FileInfo(filePath);
