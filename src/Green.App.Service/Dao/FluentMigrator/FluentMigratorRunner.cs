@@ -9,7 +9,7 @@ namespace Green.App.Dao.FluentMigrator
 {
     public static class FluentMigratorRunner
     {
-        private static readonly ILog _logger = LogManager.GetLogger(typeof(FluentMigratorRunner));
+        private static readonly ILog Logger = LogManager.GetLogger(typeof(FluentMigratorRunner));
 
         private class GreenMigrationRunner : MigrationRunner
         {
@@ -28,7 +28,7 @@ namespace Green.App.Dao.FluentMigrator
         public static void MigrateToLatest(string connectionString, string nameSpace)
         {
             // var announcer = new NullAnnouncer();
-            var announcer = new TextWriterAnnouncer(s => _logger.Info(s));
+            var announcer = new TextWriterAnnouncer(s => Logger.Info(s));
             var assembly = Assembly.GetExecutingAssembly();
 
             var migrationContext = new RunnerContext(announcer)
@@ -41,6 +41,7 @@ namespace Green.App.Dao.FluentMigrator
             var processor = factory.Create(connectionString, announcer, options);
             var runner = new GreenMigrationRunner(assembly, migrationContext, processor);
             runner.MigrateUp(true);
+            processor.Dispose();
         }
     }
 }

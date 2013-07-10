@@ -14,6 +14,7 @@ namespace Green.App.Dao.SqlCe
                 sqlCeEngine.CreateDatabase();
                 sqlCeEngine.Dispose();
             }
+            System.Threading.Thread.Sleep(1000);
         }
 
         public static string CreateConnectionString(string databaseFilename)
