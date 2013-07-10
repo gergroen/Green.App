@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Green.App.ServiceWebApi\TestWebApiService.cs" />
+    <Compile Include="Service\WebApi\TestWebApiService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,9 +64,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\qunit.css" />
-    <Content Include="Scripts\qunit.js" />
-    <Content Include="Green.App\test.js" />
+    <Content Include="Web\Content\qunit.css" />
+    <Content Include="Web\Scripts\qunit.js" />
+    <Content Include="Web\test.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dao\" />
+    <Folder Include="Model\" />
+    <Folder Include="Service\WebServer\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

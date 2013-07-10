@@ -3,7 +3,7 @@ using System.Net.Http;
 using Green.App.Service.WebApi;
 using NUnit.Framework;
 
-namespace Green.App.Test.Green.App.ServiceWebApi
+namespace Green.App.Test.Service.WebApi
 {
     [TestFixture]
     public class TestWebApiService
