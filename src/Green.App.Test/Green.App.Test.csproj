@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
@@ -37,6 +41,10 @@
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NHibernate.3.3.3.4000\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
@@ -60,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dao\FluentMigrator\TestFluentMigratorRunner.cs" />
+    <Compile Include="Dao\NHibernate\TestMapping.cs" />
     <Compile Include="Framework\Dao\TestDatabaseSchemaBase.cs" />
     <Compile Include="Framework\Dao\TestDatabaseFileBase.cs" />
     <Compile Include="Service\WebApi\TestWebApiService.cs" />
@@ -80,7 +89,6 @@
     <Content Include="Web\test.js" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Dao\NHibernate\" />
     <Folder Include="Dao\SqlCe\" />
     <Folder Include="Model\" />
     <Folder Include="Service\WebServer\" />
