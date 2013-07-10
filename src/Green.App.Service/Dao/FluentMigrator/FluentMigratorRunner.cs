@@ -5,7 +5,7 @@ using FluentMigrator.Runner.Announcers;
 using FluentMigrator.Runner.Initialization;
 using log4net;
 
-namespace Green.App.Service.Dao.FluentMigrator
+namespace Green.App.Dao.FluentMigrator
 {
     public static class FluentMigratorRunner
     {
@@ -25,7 +25,7 @@ namespace Green.App.Service.Dao.FluentMigrator
             public string ProviderSwitches { get; private set; }
         }
 
-        public static void MigrateToLatest(string connectionString)
+        public static void MigrateToLatest(string connectionString, string nameSpace)
         {
             // var announcer = new NullAnnouncer();
             var announcer = new TextWriterAnnouncer(s => _logger.Info(s));
@@ -33,7 +33,7 @@ namespace Green.App.Service.Dao.FluentMigrator
 
             var migrationContext = new RunnerContext(announcer)
                 {
-                    Namespace = "Green.App.Service.Dao.FluentMigrator"
+                    Namespace = nameSpace
                 };
 
             var options = new MigrationOptions { PreviewOnly = false, Timeout = 60 };

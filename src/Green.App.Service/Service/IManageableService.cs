@@ -1,4 +1,4 @@
-﻿namespace Green.App.Service.Service
+﻿namespace Green.App.Service
 {
     public interface IManageableService
     {

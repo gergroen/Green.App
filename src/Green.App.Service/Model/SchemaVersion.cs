@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Green.App.Service.Model
+namespace Green.App.Model
 {
     public class SchemaVersion : IEntity
     {

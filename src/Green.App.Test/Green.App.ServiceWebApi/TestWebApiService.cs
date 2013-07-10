@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Net.Http;
-using Green.App.Service.Service.WebApi;
+using Green.App.Service.WebApi;
 using NUnit.Framework;
 
 namespace Green.App.Test.Green.App.ServiceWebApi

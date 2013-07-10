@@ -1,8 +1,8 @@
-﻿using Green.App.Service.Model;
+﻿using Green.App.Model;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
 
-namespace Green.App.Service.Dao.NHibernate
+namespace Green.App.Dao.NHibernate
 {
     public class SchemaVersionMap : ClassMapping<SchemaVersion>
     {

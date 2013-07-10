@@ -1,6 +1,6 @@
 ﻿using FluentMigrator;
 
-namespace Green.App.Service.Dao.FluentMigrator
+namespace Green.App.Dao.FluentMigrator
 {
     [Migration(1)]
     public class CreateSchemaVersionTable : Migration

@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace Green.App.Service.Service.WebApi
+namespace Green.App.Service.WebApi
 {
     [HttpHeader("Access-Control-Allow-Origin", "*")]
     public class AppController : ApiController

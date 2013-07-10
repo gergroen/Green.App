@@ -1,7 +1,7 @@
-﻿using Green.App.Service.Model;
+﻿using Green.App.Model;
 using NHibernate;
 
-namespace Green.App.Service.Dao.NHibernate
+namespace Green.App.Dao.NHibernate
 {
     public class NHibernateRepository : IRepository
     {
@@ -11,6 +11,5 @@ namespace Green.App.Service.Dao.NHibernate
         {
             _sessionFactory = sessionFactory;
         }
-
     }
 }

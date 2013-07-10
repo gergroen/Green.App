@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
-using Green.App.Service.Dao.FluentMigrator;
-using Green.App.Service.Dao.NHibernate;
-using Green.App.Service.Dao.SqlCe;
-using Green.App.Service.Service;
-using Green.App.Service.Service.WebApi;
-using Green.App.Service.Service.WebServer;
+using Green.App.Dao.FluentMigrator;
+using Green.App.Dao.NHibernate;
+using Green.App.Dao.SqlCe;
+using Green.App.Service;
+using Green.App.Service.WebApi;
+using Green.App.Service.WebServer;
 using NHibernate.Cfg;
 using NHibernate.Dialect;
 using NHibernate.Driver;
@@ -16,7 +16,7 @@ using Topshelf;
 using log4net;
 using log4net.Config;
 
-namespace Green.App.Service
+namespace Green.App
 {
     class Program
     {
@@ -34,7 +34,7 @@ namespace Green.App.Service
             SqlCeEngineHelper.DeleteDatabaseIfExists(databaseFileName);
             SqlCeEngineHelper.CreateDatabaseIfNotExists(databaseFileName);
 
-            FluentMigratorRunner.MigrateToLatest(connectionString);
+            FluentMigratorRunner.MigrateToLatest(connectionString, "Green.App.Dao.FluentMigrator");
 
             var configuration = new Configuration();
             configuration.CurrentSessionContext<ThreadStaticSessionContext>();

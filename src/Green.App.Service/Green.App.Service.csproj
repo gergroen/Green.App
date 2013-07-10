@@ -7,7 +7,7 @@
     <ProjectGuid>{798DF04E-A9ED-4A4C-902C-8479B559F11D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Green.App.Service</RootNamespace>
+    <RootNamespace>Green.App</RootNamespace>
     <AssemblyName>Green.App.Service</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

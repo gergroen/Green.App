@@ -3,7 +3,7 @@ using System.IO;
 using System.Web.Http.SelfHost;
 using log4net;
 
-namespace Green.App.Service.Service.WebServer
+namespace Green.App.Service.WebServer
 {
     public class SelfHostWebServer : IManageableService
     {
